@@ -1,0 +1,75 @@
+
+from random import randrange
+from time import sleep, time
+import unittest
+from database.mysql import MySql
+from query.build import insert
+
+# I know specifying login credentials is not a good idea, but just for testing purposes.
+HOST = '127.0.0.1'
+PORT = 3306
+
+USER_ID	 = 'root'	
+PASSWORD = 'password'
+DB_NAME	 = 'test_db'
+
+# class TestMySQL(unittest.TestCase):        
+
+#     def setUp(self) -> None:
+#         self.db = MySql(HOST, PORT, USER_ID, PASSWORD, DB_NAME)
+#         self.db.connect()
+#         self.assertTrue(self.db.connected)
+
+#         return super().setUp()
+
+#     def test_create_where(self):
+#         conditions = {'a': 1, 'b': 2, 'c': 3}
+#         self.assertEqual(create_where(conditions), 'a = 1 AND b = 2 AND c = 3')
+
+#         conditions = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+#         self.assertEqual(create_where(conditions), 'a = 1 AND b = 2 AND c = 3 AND d = 4')
+
+#     def test_create_field_value(self):
+#         field_value = {'a': 1, 'b': 2, 'c': 3}
+#         self.assertEqual(create_field_value(field_value), ('a, b, c', '1, 2, 3'))
+
+#         field_value = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+#         self.assertEqual(create_field_value(field_value), ('a, b, c, d', '1, 2, 3, 4'))
+
+#     def test_crud(self):
+#         table = 'test'
+
+#         delete_ref = []
+
+#         for i in range (10):        
+#             # Test Create
+#             self.db.query(insert(table, {'val': i}))
+
+#         #     # Test Read
+#         #     ret = self.db.read(table, {'val': i})
+#         #     ret = ret[0]
+#         #     self.assertEqual(ret['val'], str(i))
+
+#         #     primary_key = ret['seq']
+
+#         #     temp = i+100
+
+#         #     # Test Update
+#         #     self.db.update(table, {'seq': primary_key}, {'val': temp})
+#         #     ret = self.db.read(table, {'seq': primary_key})
+#         #     ret = ret[0]
+#         #     self.assertEqual(ret['val'], str(temp))
+
+#         #     # Test Delete will be done after some cases
+#         #     # To make sure that API does not mess with other records
+#         #     delete_ref.append(temp)
+
+#         # # Test Delete
+#         # for d in delete_ref:            
+#         #     self.assertNotEqual(self.db.read(table, {'val': d}), [])
+#         #     self.db.delete(table, {'val': d})
+#         #     self.assertEqual(self.db.read(table, {'val': d}), [])
+            
+#         #     self.db.update(table, {'val': d}, {'val': d+200})
+                
+    
