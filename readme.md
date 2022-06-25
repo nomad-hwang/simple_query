@@ -1,10 +1,10 @@
 # Simple SQL query builder
 
-Just a simple one day project
+Just a simple one-day project
 
 - Not tested with database yet.
-- tests are in `tests` folder
-- to run test, run
+- tests are in the `tests` folder
+- to run a test, run
 ```
 python3 -m unittest
 ```
